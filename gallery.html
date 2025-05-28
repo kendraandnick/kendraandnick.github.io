@@ -108,8 +108,8 @@
 								
 								<script type="text/javascript">  
 								var myWidget = cloudinary.createUploadWidget({
-								  cloudName: 'dg20zivyl', 
-								  uploadPreset: 'Kendra'}, (error, result) => { 
+								  cloudName: 'drzr1zwjk', 
+								  uploadPreset: 'KendraNick'}, (error, result) => { 
 									if (!error && result && result.event === "success") { 
 									  console.log('Done! Here is the image info: ', result.info); 
 									}
@@ -119,6 +119,19 @@
 								document.getElementById("upload_widget").addEventListener("click", function(){
 									myWidget.open();
 								  }, false);
+
+								  function addAssetPreview(assetInfo) {
+      const previewContainer = document.getElementById("preview-container");
+      const previewElement = document.createElement(assetInfo.resource_type === "video" ? "video" : "img");
+
+      previewElement.src = assetInfo.secure_url;
+
+      if (assetInfo.resource_type === "video") {
+        previewElement.controls = true;
+      }
+
+      previewContainer.appendChild(previewElement);
+    }
 								</script></h3>
 						</div>
 					</div>
